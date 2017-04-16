@@ -16,3 +16,7 @@ body {
 #logo {
     width: 50px;
 }
+
+.tall {
+    height: 100%;
+}
