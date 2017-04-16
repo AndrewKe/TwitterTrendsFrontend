@@ -3,10 +3,13 @@ import TweetEmbed from 'react-tweet-embed'
 
 class Tweets extends Component {
   render() {
+      console.log(this.props.tweets);
     return (
-        <div>
+        <div id = "tweets-div">
             <h2>Tweets</h2>
-            <TweetEmbed id='692527862369357824' options={{cards: 'hidden' }} />
+            {this.props.tweets ? this.props.tweets.map((id) => {
+                return <TweetEmbed id={id} options={{cards: 'hidden' }} />
+            }) : <span>None</span>}
         </div>
     );
   }

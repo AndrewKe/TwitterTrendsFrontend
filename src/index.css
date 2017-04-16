@@ -20,3 +20,7 @@ body {
 .tall {
     height: 100%;
 }
+
+#tweets-div {
+    height: 200px;
+}
