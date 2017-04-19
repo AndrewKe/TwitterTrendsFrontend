@@ -16,6 +16,7 @@ class HomePage extends Component {
     }
 
     handleSubmit(event) {
+        event.preventDefault();
         this.props.changeScreen(this.state.value)
     }
 

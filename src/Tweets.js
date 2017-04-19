@@ -3,7 +3,7 @@ import TweetEmbed from 'react-tweet-embed'
 
 class Tweets extends Component {
   render() {
-      console.log(this.props.tweets);
+      //console.log(this.props.tweets);
     return (
         <div id = "tweets-div">
             <h2>Tweets</h2>

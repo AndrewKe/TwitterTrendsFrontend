@@ -15,6 +15,7 @@ class Router extends Component {
         return (
             this.state.screen == 'home' ? <HomePage changeScreen = {(tweets) => {
                 this.setState({tweets: tweets, screen: 'app'})
+                //console.log(tweets);
             }}/> : <App tweets = {this.state.tweets}/>
         )
     }

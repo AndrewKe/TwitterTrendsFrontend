@@ -9,12 +9,13 @@ var ws = new WebSocket("ws://10.0.0.33:8080/");
 
 class App extends Component {
 
-    constructor() {
-        super()
-        ws.send("Trump");
+    constructor(props) {
+        super(props)
+        ws.send(this.props.tweets);
+        //console.log(this.props.tweets);
         this.state = {};
         ws.onmessage = (evt) => {
-            console.log(evt.data);
+            //console.log(evt.data);
             this.setState({
                 data: JSON.parse(evt.data)
             })
@@ -54,7 +55,7 @@ class App extends Component {
                 categories: ['1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00']
             },
             series: [{
-                name: '#trump',
+                name: `#${this.props.tweets}`,
                 data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 295.6, 454.4]
             }],
             line: {
@@ -67,16 +68,16 @@ class App extends Component {
             config.series[0].data = []
             // for ()
             for (var time of this.state.data) {
-                console.log(time);
+                //console.log(time);
                 config.xAxis.categories.push(time.time);
                 config.series[0].data.push(time.tweets.length);
                 twts = twts.concat(time.tweets)
             }
         }
 
-        console.log(config);
-        console.log(twts);
-        console.log(twts[1]);
+        //console.log(config);
+        //console.log(twts);
+        //console.log(twts[1]);
         return (
             <div className="App">
                 <div className="App-header">
